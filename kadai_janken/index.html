@@ -106,11 +106,14 @@ $("#gu_btn").on("click",function(){
   if(player_life==1){
    $("#player_life").css('color','#ff6347');
    $("#p_heart_2").hide();
+   setInterval(function(){
+    $("#p_heart_1").fadeOut(500).fadeIn(500);
+  },1000)
   }
 
  if(player_life==0){
    $("#player_life").css('color','#dc143c');
-   $("#p_heart_1").hide();
+   $("#p_heart_1").remove();
    $("#p_peke").css('display','block');
    $("#duel").hide();
    $("#result").css('display','block');
@@ -135,11 +138,14 @@ $("#gu_btn").on("click",function(){
   if(com_life==1){
    $("#com_life").css('color','#ff6347');
    $("#c_heart_2").hide();
+   setInterval(function(){
+    $("#c_heart_1").fadeOut(500).fadeIn(500);
+  },1000)
   }
 
  if(com_life==0){
    $("#com_life").css('color','#dc143c');
-   $("#c_heart_1").hide();
+   $("#c_heart_1").remove();
    $("#c_peke").css('display','block');
    $("#duel").hide();
    $("#result").css('display','block');
@@ -190,11 +196,14 @@ $("#cho_btn").on("click",function(){
   if(player_life==1){
    $("#player_life").css('color','#ff6347');
    $("#p_heart_2").hide();
+   setInterval(function(){
+    $("#p_heart_1").fadeOut(500).fadeIn(500);
+  },1000)
   }
 
  if(player_life==0){
    $("#player_life").css('color','#dc143c');
-   $("#p_heart_1").hide();
+   $("#p_heart_1").remove();
    $("#p_peke").css('display','block');
    $("#duel").hide();
    $("#result").css('display','block');
@@ -219,11 +228,14 @@ $("#cho_btn").on("click",function(){
   if(com_life==1){
    $("#com_life").css('color','#ff6347');
    $("#c_heart_2").hide();
+   setInterval(function(){
+    $("#c_heart_1").fadeOut(500).fadeIn(500);
+  },1000)
   }
 
  if(com_life==0){
    $("#com_life").css('color','#dc143c');
-   $("#c_heart_1").hide();
+   $("#c_heart_1").remove();
    $("#c_peke").css('display','block');
    $("#duel").hide();
    $("#result").css('display','block');
@@ -274,11 +286,14 @@ $("#par_btn").on("click",function(){
   if(player_life==1){
    $("#player_life").css('color','#ff6347');
    $("#p_heart_2").hide();
+   setInterval(function(){
+    $("#p_heart_1").fadeOut(500).fadeIn(500);
+  },1000)
   }
 
  if(player_life==0){
    $("#player_life").css('color','#dc143c');
-   $("#p_heart_1").hide();
+   $("#p_heart_1").remove();
    $("#p_peke").css('display','block');
    $("#duel").hide();
    $("#result").css('display','block');
@@ -303,11 +318,14 @@ $("#par_btn").on("click",function(){
   if(com_life==1){
    $("#com_life").css('color','#ff6347');
    $("#c_heart_2").hide();
+   setInterval(function(){
+    $("#c_heart_1").fadeOut(500).fadeIn(500);
+  },1000)
   }
 
  if(com_life==0){
    $("#com_life").css('color','#dc143c');
-   $("#c_heart_1").hide();
+   $("#c_heart_1").remove();
    $("#c_peke").css('display','block');
    $("#duel").hide();
    $("#result").css('display','block');
