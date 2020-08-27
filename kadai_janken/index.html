@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title>じゃんけん</title>
+</head>
+<body>
+
+<header>
+  <h1 id="title">じゃんけんファイト！</h1>
+</header>
+
+<main>
+  <div id="life">
+    <div>あなたのライフ：<span id="player_life">5</span></div>
+    <div id="p_heart">
+      <img src="img/mark_batsu.png" id="p_peke" class="peke" alt="ペケ画像">
+      <img src="img/pics2256.gif" id="p_heart_1" class="heart" alt="ハート画像">
+      <img src="img/pics2256.gif" id="p_heart_2" class="heart" alt="ハート画像">
+      <img src="img/pics2256.gif" id="p_heart_3" class="heart" alt="ハート画像">
+      <img src="img/pics2256.gif" id="p_heart_4" class="heart" alt="ハート画像">
+      <img src="img/pics2256.gif" id="p_heart_5" class="heart" alt="ハート画像">
+    </div>
+    <div>コンピュータのライフ：<span id="com_life">5</span></div>
+    <div id="c_heart">
+      <img src="img/mark_batsu.png" id="c_peke" class="peke" alt="ペケ画像">
+      <img src="img/pics2256.gif" id="c_heart_1" class="heart" alt="ハート画像">
+      <img src="img/pics2256.gif" id="c_heart_2" class="heart" alt="ハート画像">
+      <img src="img/pics2256.gif" id="c_heart_3" class="heart" alt="ハート画像">
+      <img src="img/pics2256.gif" id="c_heart_4" class="heart" alt="ハート画像">
+      <img src="img/pics2256.gif" id="c_heart_5" class="heart" alt="ハート画像">
+    </div>
+  </div>
+  
+  <div id="duel">
+    <ul>
+      <li id="gu_btn">グー</li>
+      <li id="cho_btn">チョキ</li>
+      <li id="par_btn">パー</li>
+    </ul>
+
+    <div>コンピュータの出した手は<span id="pc_hands">・・・</span></div>
+    <div>今回の勝敗：<span id="judgment">ーー</span></div>
+  </div>
+
+  <div id="result">
+    <div id="victory">あなたの勝利です！</div>
+    <div id="lose">あなたの敗北です！</div>
+  </div>
+
+</main>
+
+<footer></footer>
+<script>
+//じゃんけん用のSCRIPTを書いてください
+
+let player_life = 5;
+let com_life = 5;
+
+console.log(player_life , com_life)
+
+// グーをクリック
+
+$("#gu_btn").on("click",function(){
+  const num = Math.ceil(Math.random()*3);
+
+  if(num==1){
+    $("#pc_hands").html("、グー！");
+    $("#judgment").html("あいこ！もう１回！");
+  }
+
+  if(num==2){
+    $("#pc_hands").html("、チョキ！");
+    $("#judgment").html("あなたの勝ち！ダメージを与えた！");
+    com_life -= 1;
+    $("#com_life").html(com_life);
+  }
+
+  if(num==3){
+    $("#pc_hands").html("、パー！");
+    $("#judgment").html("あなたの負け！ダメージを受けた！");
+    player_life -=1;
+    $("#player_life").html(player_life); 
+  }
+
+ console.log(player_life,com_life);
+
+  //プレイヤーのライフ変化
+ if(player_life==4){
+    $("#p_heart_5").hide();
+ }
+
+ if(player_life==3){
+   $("#player_life").css('color','#ffd700');
+   $("#p_heart_4").hide();
+  }
+
+  if(player_life==2){
+   $("#player_life").css('color','#ffa500');
+   $("#p_heart_3").hide();
+  }
+
+  if(player_life==1){
+   $("#player_life").css('color','#ff6347');
+   $("#p_heart_2").hide();
+  }
+
+ if(player_life==0){
+   $("#player_life").css('color','#dc143c');
+   $("#p_heart_1").hide();
+   $("#p_peke").css('display','block');
+   $("#duel").hide();
+   $("#result").css('display','block');
+   $("#lose").fadeIn(1000);
+  }
+
+  //コンピュータのライフ変化
+  if(com_life==4){
+    $("#c_heart_5").hide();
+ }
+  
+  if(com_life==3){
+   $("#com_life").css('color','#ffd700');
+   $("#c_heart_4").hide();
+  }
+
+  if(com_life==2){
+   $("#com_life").css('color','#ffa500');
+   $("#c_heart_3").hide();
+  }
+
+  if(com_life==1){
+   $("#com_life").css('color','#ff6347');
+   $("#c_heart_2").hide();
+  }
+
+ if(com_life==0){
+   $("#com_life").css('color','#dc143c');
+   $("#c_heart_1").hide();
+   $("#c_peke").css('display','block');
+   $("#duel").hide();
+   $("#result").css('display','block');
+   $("#victory").fadeIn(1000);
+  }
+})
+
+// チョキをクリック    
+$("#cho_btn").on("click",function(){
+  const num = Math.ceil(Math.random()*3);
+
+  if(num==1){
+    $("#pc_hands").html("、グー！");
+    $("#judgment").html("あなたの負け！ダメージを受けた！");
+    player_life -= 1;
+    $("#player_life").html(player_life); 
+  }
+
+  if(num==2){
+    $("#pc_hands").html("、チョキ！");
+    $("#judgment").html("あいこ！もう１回！");
+  }
+
+  if(num==3){
+    $("#pc_hands").html("、パー！");
+    $("#judgment").html("あなたの勝ち！ダメージを与えた！");
+    com_life -= 1;
+    $("#com_life").html(com_life);
+  }
+
+  console.log(player_life,com_life);
+
+  //プレイヤーのライフ変化
+  if(player_life==4){
+    $("#p_heart_5").hide();
+ }
+
+ if(player_life==3){
+   $("#player_life").css('color','#ffd700');
+   $("#p_heart_4").hide();
+  }
+
+  if(player_life==2){
+   $("#player_life").css('color','#ffa500');
+   $("#p_heart_3").hide();
+  }
+
+  if(player_life==1){
+   $("#player_life").css('color','#ff6347');
+   $("#p_heart_2").hide();
+  }
+
+ if(player_life==0){
+   $("#player_life").css('color','#dc143c');
+   $("#p_heart_1").hide();
+   $("#p_peke").css('display','block');
+   $("#duel").hide();
+   $("#result").css('display','block');
+   $("#lose").fadeIn(1000);
+  }
+
+  //コンピュータのライフ変化
+  if(com_life==4){
+    $("#c_heart_5").hide();
+ }
+  
+  if(com_life==3){
+   $("#com_life").css('color','#ffd700');
+   $("#c_heart_4").hide();
+  }
+
+  if(com_life==2){
+   $("#com_life").css('color','#ffa500');
+   $("#c_heart_3").hide();
+  }
+
+  if(com_life==1){
+   $("#com_life").css('color','#ff6347');
+   $("#c_heart_2").hide();
+  }
+
+ if(com_life==0){
+   $("#com_life").css('color','#dc143c');
+   $("#c_heart_1").hide();
+   $("#c_peke").css('display','block');
+   $("#duel").hide();
+   $("#result").css('display','block');
+   $("#victory").fadeIn(1000);
+  }
+})
+
+// パーをクリック    
+$("#par_btn").on("click",function(){
+  const num = Math.ceil(Math.random()*3);
+
+  if(num==1){
+    $("#pc_hands").html("、グー！");
+    $("#judgment").html("あなたの勝ち！ダメージを与えた！");
+    com_life -= 1;
+    $("#com_life").html(com_life);
+  }
+
+  if(num==2){
+    $("#pc_hands").html("、チョキ！");
+    $("#judgment").html("あなたの負け！ダメージを受けた！");
+    player_life -= 1;
+    $("#player_life").html(player_life); 
+  }
+
+  if(num==3){
+    $("#pc_hands").html("、パー！");
+    $("#judgment").html("あいこ！もう１回！");
+  }
+
+  console.log(player_life,com_life);
+
+  //プレイヤーのライフ変化
+  if(player_life==4){
+    $("#p_heart_5").hide();
+ }
+
+ if(player_life==3){
+   $("#player_life").css('color','#ffd700');
+   $("#p_heart_4").hide();
+  }
+
+  if(player_life==2){
+   $("#player_life").css('color','#ffa500');
+   $("#p_heart_3").hide();
+  }
+
+  if(player_life==1){
+   $("#player_life").css('color','#ff6347');
+   $("#p_heart_2").hide();
+  }
+
+ if(player_life==0){
+   $("#player_life").css('color','#dc143c');
+   $("#p_heart_1").hide();
+   $("#p_peke").css('display','block');
+   $("#duel").hide();
+   $("#result").css('display','block');
+   $("#lose").fadeIn(1000);
+  }
+
+  //コンピュータのライフ変化
+  if(com_life==4){
+    $("#c_heart_5").hide();
+ }
+  
+  if(com_life==3){
+   $("#com_life").css('color','#ffd700');
+   $("#c_heart_4").hide();
+  }
+
+  if(com_life==2){
+   $("#com_life").css('color','#ffa500');
+   $("#c_heart_3").hide();
+  }
+
+  if(com_life==1){
+   $("#com_life").css('color','#ff6347');
+   $("#c_heart_2").hide();
+  }
+
+ if(com_life==0){
+   $("#com_life").css('color','#dc143c');
+   $("#c_heart_1").hide();
+   $("#c_peke").css('display','block');
+   $("#duel").hide();
+   $("#result").css('display','block');
+   $("#victory").fadeIn(1000);
+  }
+})
+
+</script>
+</body>
+</html>

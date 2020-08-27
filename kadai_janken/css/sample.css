@@ -1,0 +1,106 @@
+body{
+    margin:0;
+    padding:0;
+    text-align:left;
+    font-size: 32px;
+}
+header{
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+#title{
+    font-size: 64px;
+    margin: 15px 0;
+}
+
+main{
+    border-bottom:1px solid #ccc;
+}
+
+#life{
+    padding-top: 32px;
+}
+
+#player_life{
+    color: green;
+}
+
+#p_heart{
+    height: 60px;
+}
+
+#c_heart{
+    height: 60px;
+}
+
+.peke{
+    width: 50px;
+    height: 50px;
+    display: none;
+}
+
+.heart{
+    width: 50px;
+    height: 50px;
+}
+
+#com_life{
+    color: green;
+}
+
+#result{
+    border-top: 1px solid #ccc;
+    display: none;
+    margin-top: 32px;
+}
+
+#victory{
+    font-size: 64px;
+    font-weight: bold;
+    color:blue;
+    text-align: center;
+    padding: 55px 0px;
+    display: none;
+}
+
+#lose{
+    font-size: 64px;
+    font-weight: bold;
+    color:red;
+    text-align: center;
+    padding: 55px 0px;
+    display: none;
+}
+
+footer{
+    background-color: #fff;
+    border-bottom:1px solid #ccc;
+    text-align: center;
+}
+p{
+    font-size:200%;
+    text-align: center;
+    border-bottom:1px solid #fff;
+    height:200px;
+}
+ul{
+    padding: 0;
+    border-top: 1px solid #000000;
+    display:table;  /* 定義 */
+    table-layout: fixed;
+    width:100%;
+}
+li{
+    text-align: center;
+    list-style-type:none;
+    border: 1px solid #666;
+    background-color: #FFF;
+    display:table-cell;  /* 定義 */
+    cursor: pointer;
+}
+li:hover{
+    background: #0066CC;
+    color:#fff;
+}
